@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>rpg.lol</title>
+  <style>
+    :root{
+      --bg:#070b16;
+      --panel:#0c1226;
+      --purple:#7b3fe4;
+      --purple-glow:#a56bff;
+      --text:#e9ecff;
+      --muted:#9aa3ff;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 60% 30%, #0e1a3a 0%, transparent 60%),
+        radial-gradient(800px 500px at 20% 70%, #0a1433 0%, transparent 55%),
+        var(--bg);
+      overflow:hidden;
+    }
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:22px 28px;
+    }
+    .logo{
+      font-weight:800;
+      letter-spacing:.5px;
+      font-size:26px;
+    }
+    .nav{
+      display:flex; gap:14px;
+    }
+    .pill{
+      padding:10px 18px;
+      border-radius:999px;
+      border:1px solid rgba(165,107,255,.5);
+      color:var(--text);
+      background:transparent;
+      cursor:pointer;
+      transition:.2s;
+    }
+    .pill:hover{
+      box-shadow:0 0 22px rgba(165,107,255,.45);
+      transform:translateY(-1px);
+    }
+
+    main{
+      height:calc(100% - 86px);
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:24px;
+      padding:24px 28px 36px;
+      align-items:center;
+    }
+
+    .hero{
+      position:relative;
+      height:100%;
+      border-radius:22px;
+      background:
+        radial-gradient(300px 300px at 70% 35%, rgba(123,63,228,.35), transparent 60%),
+        radial-gradient(240px 240px at 30% 65%, rgba(165,107,255,.25), transparent 60%);
+      overflow:hidden;
+    }
+
+    /* Fake neon “weapon” silhouette */
+    .weapon{
+      position:absolute;
+      inset:10% 8% 10% 12%;
+      filter: drop-shadow(0 0 22px rgba(165,107,255,.45));
+    }
+    .weapon svg{
+      width:100%; height:100%;
+    }
+    .weapon .glow{
+      filter: blur(2px);
+      opacity:.9;
+    }
+    .tag{
+      position:absolute;
+      left:22%;
+      top:48%;
+      transform:translate(-50%,-50%);
+      font-weight:900;
+      font-size:64px;
+      letter-spacing:2px;
+      color:#b98bff;
+      text-shadow:
+        0 0 18px rgba(185,139,255,.9),
+        0 0 36px rgba(123,63,228,.7);
+    }
+
+    .panel{
+      background: linear-gradient(180deg, rgba(12,18,38,.85), rgba(8,12,26,.85));
+      border:1px solid rgba(165,107,255,.25);
+      border-radius:22px;
+      padding:28px;
+      box-shadow: 0 30px 80px rgba(0,0,0,.45), inset 0 0 40px rgba(165,107,255,.05);
+    }
+    .panel h1{
+      margin:0 0 18px;
+      font-size:34px;
+      letter-spacing:.5px;
+    }
+    .field{
+      margin-bottom:14px;
+    }
+    .field input{
+      width:100%;
+      padding:14px 16px;
+      border-radius:12px;
+      border:1px solid rgba(165,107,255,.35);
+      background:#0a1024;
+      color:var(--text);
+      outline:none;
+    }
+    .field input::placeholder{color:#9aa3ff99}
+    .cta{
+      margin-top:8px;
+      width:100%;
+      padding:14px 18px;
+      border-radius:14px;
+      border:none;
+      font-weight:800;
+      letter-spacing:.6px;
+      color:white;
+      background: linear-gradient(135deg, var(--purple), var(--purple-glow));
+      box-shadow: 0 0 30px rgba(165,107,255,.6);
+      cursor:pointer;
+      transition:.2s;
+    }
+    .cta:hover{
+      transform:translateY(-1px);
+      box-shadow: 0 0 42px rgba(165,107,255,.85);
+    }
+    .note{
+      margin-top:10px;
+      font-size:13px;
+      color:var(--muted);
+      text-align:center;
+    }
+
+    @media (max-width: 900px){
+      main{grid-template-columns:1fr; height:auto}
+      body{overflow:auto}
+      .tag{font-size:48px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">rpg.lol</div>
+    <div class="nav">
+      <button class="pill">REGISTER</button>
+      <button class="pill">LOGIN</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="weapon">
+        <svg viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="glow" d="M60 220 L520 220 L580 200 L720 200 L740 220 L720 240 L580 240 L520 220 Z"
+            stroke="#a56bff" stroke-width="14"/>
+          <path d="M60 220 L520 220 L580 200 L720 200 L740 220 L720 240 L580 240 L520 220 Z"
+            stroke="#7b3fe4" stroke-width="6"/>
+          <circle cx="110" cy="220" r="28" stroke="#35ffb8" stroke-width="6"/>
+        </svg>
+      </div>
+      <div class="tag">.RPG</div>
+    </section>
+
+    <section class="panel">
+      <h1>CREATE YOUR RPG.LOL</h1>
+      <div class="field">
+        <input placeholder="Email" />
+      </div>
+      <div class="field">
+        <input type="password" placeholder="Password" />
+      </div>
+      <button class="cta">CREATE ACCOUNT</button>
+      <div class="note">Verification email sent. Check your inbox.</div>
+    </section>
+  </main>
+</body>
+</html>
